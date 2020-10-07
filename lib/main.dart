@@ -31,18 +31,19 @@ class XylophoneApp extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              for (var i in [1, 2, 3, 4, 5, 6, 7])
-                Expanded(
-                    child: RaisedButton(
-                  padding: EdgeInsets.all(0),
-                  color: colors[i - 1],
-                  onPressed: () => _playAudio(i),
-                  child: Text(""),
-                )),
+              for (var i in [1, 2, 3, 4, 5, 6, 7]) buildExpanded(i),
             ],
           ),
         ),
       ),
     );
   }
+
+  Expanded buildExpanded(int i) => Expanded(
+          child: RaisedButton(
+        padding: EdgeInsets.all(0),
+        color: colors[i - 1],
+        onPressed: () => _playAudio(i),
+        child: Text(""),
+      ));
 }
